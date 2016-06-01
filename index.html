@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="confusionApp">
 <head>
 	<!--Import Google Icon Font-->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,6 +46,7 @@
 					</div>
 					<i class="material-icons">close</i>
 				</div>
+			
 			</form>
 			<ul class="right hide-on-med-and-down">
 				<li><a class="dropdown-button" href="#" data-activates="dropdown-navbar">Sort<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -64,9 +65,51 @@
       <li><a href="#!">Second Sidebar Link</a></li>
     </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
-	
 
+   
 
+<div class="row row-content" ng-controller="menuController as menuCtrl">
+    
+    <div class="row">
+
+      <div class="col s3">
+      		hello world
+      </div>
+
+      <div class="col s9">
+        <!-- Promo Content 1 goes here -->
+        <div class="col s4" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
+        <div class="card medium" >
+		    <div class="card-image waves-effect waves-block waves-light">
+		      <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">		    
+		  	</div>
+		    <div class="card-content">
+		      <span class="card-title activator grey-text text-darken-4">{{dish.name}}<i class="material-icons right">more_vert</i></span>
+
+		    </div>
+		    <div class="card-reveal">
+		      <span class="card-title grey-text text-darken-4">{{dish.name}}
+		      	<span class="label label-danger label-xs">({{dish.label}})</span>
+		      	
+		      	<i class="material-icons right">close</i>
+		      </span>
+		      <p>
+		      	<h2 class="badge">{{dish.price | currency}}</h2>
+		      	<h4 class="media-heading">Ingredients:
+                    
+                    
+                </h4>
+                <h4 class="media-heading">Recipe:
+                    
+                </h4>
+              </p>
+		    </div>
+		</div>
+		</div>
+      </div>
+    </div>
+
+</div>
 	<!-- Import jQuery before materialize.js -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<!-- Materialize js file-->
@@ -80,5 +123,80 @@
 		});
 
 	</script>
+
+	<script src="../bower_components/angular/angular.min.js">
+    </script>
+
+    <script>
+
+        var app = angular.module("confusionApp",[]);
+
+        app.controller('menuController', function() {
+
+              this.tab = 1;
+
+              this.filtText = '';
+
+              var dishes=[
+                         {
+                           name:'Uthapizza',
+                           image: 'images/uthapizza.png',
+                           category: 'mains',
+                           label:'Hot',
+                           price:'4.99',
+                           description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
+                           comment: ''
+                        },
+                        {
+                           name:'Zucchipakoda',
+                           image: 'images/zucchipakoda.png',
+                           category: 'appetizer',
+                           label:'',
+                           price:'1.99',
+                           description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
+                           comment: ''
+                        },
+                        {
+                           name:'Vadonut',
+                           image: 'images/vadonut.png',
+                           category: 'appetizer',
+                           label:'New',
+                           price:'1.99',
+                           description:'A quintessential ConFusion experience, is it a vada or is it a donut?',
+                           comment: ''
+                        },
+                        {
+                           name:'ElaiCheese Cake',
+                           image: 'images/elaicheesecake.png',
+                           category: 'dessert',
+                           label:'',
+                           price:'2.99',
+                           description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
+                           comment: ''
+                        }
+                        ];
+            this.dishes = dishes;
+
+            this.select = function(setTab) {
+                this.tab = setTab;
+
+                if (setTab === 2)
+                    this.filtText = "appetizer";
+                else if (setTab === 3)
+                    this.filtText = "mains";
+                else if (setTab === 4)
+                    this.filtText = "dessert";
+                else
+                    this.filtText = "";
+                
+            }
+
+            this.isSelected = function (checkTab) {
+                return (this.tab === checkTab);
+            }
+        } 
+        );
+
+    </script>
 </body>
 </html>
