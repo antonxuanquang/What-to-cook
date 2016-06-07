@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="confusionApp">
+<html lang="en" ng-app="whatToCookApp">
 
 <head>
   <!--Import Google Icon Font-->
@@ -12,220 +12,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> </head>
 
 <body>
-  <!-- ****** Navbar ****** -->
-  <!-- Dropdown Structure -->
-  <ul id="dropdown-navbar" class="dropdown-content">
-    <li><a href="#!">one</a> </li>
-    <li><a href="#!">two</a> </li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a> </li>
-  </ul>
-  <nav>
-    <div class="nav-wrapper"> <a href="#" class="brand-logo hide-on-med-and-down">Logo</a> <a href="#" data-activates="side-navbar" class="button-collapse"><i class="material-icons">menu</i></a>
-      <form class="left wtc-search-navbar">
-        <div class="input-field">
-          <input class="wtc-input" id="search" type="search" required>
-          <label for="search"> <i class="material-icons">search</i> </label>
-          <div class="chip"> Tag <i class="material-icons">close</i> </div>
-          <div class="chip"> Tag 2 <i class="material-icons">close</i> </div>
-          <div class="chip"> Tag 3 <i class="material-icons">close</i> </div> <i class="material-icons">close</i> </div>
-      </form>
-      <ul class="right hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#" data-activates="dropdown-navbar">Sort<i class="material-icons right">arrow_drop_down</i></a> </li>
-        <li><a href="#"><i class="material-icons right">thumb_up</i>Link with Left Icon</a> </li>
-      </ul>
-      <ul class="side-nav" id="side-navbar">
-        <li><a href="#">Sass</a> </li>
-        <li><a href="#">Components</a> </li>
-      </ul>
-    </div>
-  </nav>
-  <ul id="slide-out" class="side-nav">
-    <li><a href="#!">First Sidebar Link</a> </li>
-    <li><a href="#!">Second Sidebar Link</a> </li>
-  </ul> <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
-  <div class="row row-content" ng-controller="menuController as menuCtrl">
-    <div class="row">
-      <div class="container">
-        <!-- Promo Content 1 goes here -->
-        <div class="col s6" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
-          <div class="card medium">
-            <div class="card-image waves-effect waves-block waves-light"> <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza"> </div>
-            <div class="card-content"> <span class="card-title activator grey-text text-darken-4">{{dish.name}}<i class="material-icons right">more_vert</i></span>
-              <p> {{dish.description}} </p>
-            </div>
-            <div class="card-reveal"> 
-              <span class="card-title grey-text text-darken-4">{{dish.name}}
-                <span class="label label-danger label-xs">({{dish.label}})</span> 
-                <i class="material-icons right">close</i> 
-                </span>
-              <p>
-                <h4 class="badge">{{dish.price | currency}}</h4>
-                <h4 class="media-heading">Ingredients:
-                <div class="row">
-                  <div class="col m12 m12">
-                    <div class="card blue-grey darken-1">
-                      <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card.</p>
-                      </div>
-                      <div class="card-action">
-                        <a href="#">This is a link</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </h4>
-                <h4 class="media-heading">
-                  <div class="row1">
-                    <div class="col s3 m6">Recipe:
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                          <span class="card-title">Card Title</span>
-                          <p>I am a very simple card.</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
+  
+  <div ui-view="header" ></div>
+  <div ui-view="content" ></div>
+  <div ui-view="footer" ></div>
 
-                    <div class="col s3 m6">Ingredients:
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                          <span class="card-title">Card Title</span>
-                          <p>I am a very simple card.</p>
-                        </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
 
-                  </div>
-
-                    
-            </h4>
-                <p> <a href="https://www.raspberrypi.org/downloads/raspbian/">More...</a> </p>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 	<!-- Import jQuery before materialize.js -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<!-- Materialize js file-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/package/materialize.min.js"></script>
 	<!-- Angular JS -->
-	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/package/angular.min.js"></script>
+  <!-- Angular-UI-Router JS -->
+  <script type="text/javascript" src="js/package/angular-ui-router.min.js"></script>
+  <!-- Module (i.e.: app.js) -->
+  <script type="text/javascript" src="js/app.js"></script>
+  <!-- Controllers (i.e.: controllers.js) -->
+  <script type="text/javascript" src="js/controllers.js"></script>
+  <!-- Data (i.e.: service.js) -->
+  <script type="text/javascript" src="js/services.js"></script>
 
 	<script>
-		$( document ).ready(function(){
+		$(document).ready(function(){
 			$(".button-collapse").sideNav();
 		});
 
 	</script>
-
-    <script>
-
-        var app = angular.module("confusionApp",[]);
-
-        app.controller('menuController', function() {
-
-              this.tab = 1;
-
-              this.filtText = '';
-
-              var ingres= [{
-              	ing1: 'a1',
-              	ing2: 'b1',
-              	ing3: 'd1',
-              	ing4: 'c1',
-          	  },
-          	  {
-              	ing1: 'a2',
-              	ing2: 'b2',
-              	ing3: 'd2',
-              	ing4: 'c2',
-          	  },
-          	  {
-              	ing1: 'a3',
-              	ing2: 'b3',
-              	ing3: 'd3',
-              	ing4: 'c3',
-          	  }
-          	  ];
-
-              var dishes=[
-                         {
-                           name:'Uthapizza',
-                           image: 'images/uthapizza.png',
-                           category: 'mains',
-                           label:'Hot',
-                           price:'4.99',
-                           description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-                           comment: '',
-                           link:''
-                         
-                        },
-                        {
-                           name:'Zucchipakoda',
-                           image: 'images/zucchipakoda.png',
-                           category: 'appetizer',
-                           label:'',
-                           price:'1.99',
-                           description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
-                           comment: '',
-                           link:''
-                           //ingredients: 'a', 'b', 'c', 'd'
-                        },
-                        {
-                           name:'Vadonut',
-                           image: 'images/vadonut.png',
-                           category: 'appetizer',
-                           label:'New',
-                           price:'1.99',
-                           description:'A quintessential ConFusion experience, is it a vada or is it a donut?',
-                           comment: '',
-                           link:''
-                           //ingredients: 'a', 'b', 'c', 'd'
-                        },
-                        {
-                           name:'ElaiCheese Cake',
-                           image: 'images/elaicheesecake.png',
-                           category: 'dessert',
-                           label:'',
-                           price:'2.99',
-                           description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-                           comment: '',
-                           link:''
-                           //ingredients: 'a', 'b', 'c', 'd'
-                        }
-                        ];
-            this.dishes = dishes;
-
-            this.select = function(setTab) {
-                this.tab = setTab;
-
-                if (setTab === 2)
-                    this.filtText = "appetizer";
-                else if (setTab === 3)
-                    this.filtText = "mains";
-                else if (setTab === 4)
-                    this.filtText = "dessert";
-                else
-                    this.filtText = "";
-                
-            }
-
-            this.isSelected = function (checkTab) {
-                return (this.tab === checkTab);
-            }
-        } 
-        );
-
-    </script>
 </body>
 </html>
