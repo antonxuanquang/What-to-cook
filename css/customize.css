@@ -1,17 +1,11 @@
 .wtc-search-navbar {
 	margin-left: 10%;
-	width: 55%;
-}
-nav .input-field {
-	margin: 5px 0 0 0;
-	height: 45px;
+	width: 65%;
 }
 
-nav .input-field input {
-	margin: -10 0 0 100;
+nav ul {
+	margin-top: -80px;
 }
-
-nav .input-field label,
-.input-field input[type=search] ~ .material-icons {
-	top: -4px;
+.input-field .chip {
+	margin-top: -80px;
 }
