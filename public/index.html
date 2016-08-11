@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="whatToCookApp">
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="stylesheets/materialize.min.css" media="screen,projection" />
+  <!-- Import custome css -->
+  <link type="text/css" rel="stylesheet" href="stylesheets/customize.css" media="screen,projection" />
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> </head>
+
+<body>
+  
+  <div ui-view="header"></div>
+  <div ui-view="content"></div>
+  <div ui-view="footer"></div>
+
+
+	<!-- Import jQuery before materialize.js -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Materialize js file-->
+	<script type="text/javascript" src="javascripts/package/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".button-collapse").sideNav();
+    });
+  </script>
+	<!-- Angular JS -->
+	<script type="text/javascript" src="javascripts/package/angular.min.js"></script>
+  <!-- Angular-UI-Router JS -->
+  <script type="text/javascript" src="javascripts/package/angular-ui-router.min.js"></script>
+  <!-- Module (i.e.: app.js) -->
+  <script type="text/javascript" src="javascripts/app.js"></script>
+  <!-- Controllers (i.e.: controllers.js) -->
+  <script type="text/javascript" src="javascripts/controllers.js"></script>
+  <!-- Data (i.e.: service.js) -->
+  <script type="text/javascript" src="javascripts/services.js"></script>
+
+	
+</body>
+</html>
