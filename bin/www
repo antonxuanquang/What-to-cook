@@ -1,4 +1,4 @@
-#!/usr/bin/nodejs
+#!/usr/bin/env/node
 var debug = require('debug')('rest-server:server');
 var app = require('../app');
 var http = require('http');
@@ -10,10 +10,10 @@ var fs = require('fs');
 * 	Get port from environment and store in Express
 */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '3000');
 
 app.set('port', port);
-app.set('secPort', 443);
+app.set('secPort', port + 443);
 
 /*
 	Create HTTP server

@@ -27,12 +27,12 @@ var leaderRouter = require('./routes/leaderRouter');
 var app = express();
 
 // secure traffic only
-app.all('*', function(req, res, next) {
-    // console.log('https://' + req.headers.host + ':' +  app.get('secPort') + req.url);
-    // console.log('req start: ', req.secure, req.url, app.get('port'));
-    if (req.secure) return next();
-    res.redirect('https://' + req.headers.host + ':' +  app.get('secPort') + req.url);
-});
+// app.all('*', function(req, res, next) {
+//     // console.log('https://' + req.headers.host + ':' +  app.get('secPort') + req.url);
+//     // console.log('req start: ', req.secure, req.url, app.get('port'));
+//     if (req.secure) return next();
+//     res.redirect('https://' + process.env.IP + ':' +  app.get('secPort') + req.url);
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
