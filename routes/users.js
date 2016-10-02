@@ -60,11 +60,15 @@ router.get('/facebook/callback', function(req, res, next) {
 				err: 'Could not log in user'
 			});
 			var token = Verify.getToken(user);
-			res.status(200).json({
-				status: 'Login successful!!!',
-				success: true,
-				token: token
-			});
+			// res.status(200).json({
+			// 	status: 'Login Successful!',
+			// 	success: true,
+			// 	token: token,
+			// 	redirectTo: '/'
+			// });
+			// console.log(req.headers);
+			req.headers['x-access-token'] = token;
+			res.redirect('/');
 		});
 	}) (req, res, next);
 });

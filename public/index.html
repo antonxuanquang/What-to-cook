@@ -14,7 +14,11 @@
 <body>
   
   <div ui-view="header"></div>
-  <div ui-view="content"></div>
+  <div class="row row-content">
+    <div class="container">
+      <div ui-view="content"></div>
+    </<div>
+  </div>
   <div ui-view="footer"></div>
 
 

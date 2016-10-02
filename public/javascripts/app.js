@@ -6,7 +6,7 @@ angular.module('whatToCookApp', ['ui.router'])
     $stateProvider
         // route for the home page
         .state('app', {
-            url: '/',
+            url: '',
             views: {
                 'header': {
                     templateUrl: '../views/header.html'
@@ -18,7 +18,22 @@ angular.module('whatToCookApp', ['ui.router'])
                 'footer': {
                     templateUrl: '../views/footer.html'
                 }
+            },
+        })
+        .state('upload', {
+            url: '/upload',
+            views: {
+                'header': {
+                    templateUrl: '../views/header.html'
+                },
+                'content': {
+                    templateUrl: '../views/upload.html'
+                },
+                'footer': {
+                    templateUrl: '../views/footer.html'
+                }
             }
+        });
         // })
         // // route for aboutus page
         // .state('app.aboutus', {
@@ -57,7 +72,6 @@ angular.module('whatToCookApp', ['ui.router'])
         //             controller: 'DishDetailController'
         //         }
         //     }
-        });
 
         $urlRouterProvider.otherwise('/');
 });
