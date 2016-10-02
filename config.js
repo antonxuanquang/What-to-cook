@@ -4,6 +4,6 @@ module.exports = {
 	'facebook': {
 		clientID: '1114906558583574',
 		clientSecret: '240cafbd334fa1d1104ff5b14db23334',
-		callbackURL: 'https://localhost/users/facebook/callback'
+		callbackURL: 'http://what-to-cook-antonxuanquang.c9users.io/users/facebook/callback'
 	}
 }
