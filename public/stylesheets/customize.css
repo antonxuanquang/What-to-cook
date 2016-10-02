@@ -1,6 +1,11 @@
 .wtc-search-navbar {
 	margin-left: 10%;
 	width: 65%;
+	height: 100%;
+}
+
+nav .input-field {
+    height: 100%;
 }
 
 nav ul {
